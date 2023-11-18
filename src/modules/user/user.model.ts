@@ -24,14 +24,24 @@ const userAddressSchema = new Schema<UserAddress>({
  * user schema
  */
 const userSchema = new Schema<UserInterface>({
-    name: userNameSchema,
+    name: { type: userNameSchema, required: [true, 'user name is required'] },
     email: { type: String, required: true },
-    gender: ['male', 'female', 'other'],
+    gender: {
+        type: String,
+        enum: {
+            values: ['male', 'female', 'other'],
+            message: "Do not use {VALUE} use 'male' or 'female' or 'other'"
+        },
+        required: [true, 'gender is required']
+    },
     contactNo: { type: String },
     dateOfBirth: { type: String, required: true },
-    bloodGroup: ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'],
+    bloodGroup: {
+        type: String,
+        enum: ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'],
+    },
     profileImg: { type: String },
-    address: userAddressSchema,
+    address: { type: userAddressSchema, required: true },
     isActive: { type: Boolean, required: true },
 })
 

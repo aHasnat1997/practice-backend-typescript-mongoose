@@ -7,12 +7,8 @@ import { UserModel } from "./user.model";
  * @returns response
  */
 const createUserIntoDB = async (user: UserInterface) => {
-    try {
-        const result = await UserModel.create(user);
-        return result;
-    } catch (error) {
-        console.log(error);
-    }
+    const result = await UserModel.create(user);
+    return result;
 };
 
 /**
@@ -20,12 +16,8 @@ const createUserIntoDB = async (user: UserInterface) => {
  * @returns response
  */
 const getAllUserFromDB = async () => {
-    try {
-        const result = await UserModel.find();
-        return result;
-    } catch (error) {
-        console.log(error);
-    }
+    const result = await UserModel.find();
+    return result;
 }
 
 /**
