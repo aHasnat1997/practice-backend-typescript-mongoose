@@ -6,7 +6,7 @@ import { UserModel } from "./user.model";
  * @param user user data
  * @returns response
  */
-const createUserIntoDB = async (user: UserInterface) => {
+const createUserIntoDB = async (user: UserInterface): Promise<UserInterface> => {
     const result = await UserModel.create(user);
     return result;
 };
@@ -15,7 +15,7 @@ const createUserIntoDB = async (user: UserInterface) => {
  * find all user data from DB
  * @returns response
  */
-const getAllUserFromDB = async () => {
+const getAllUserFromDB = async (): Promise<UserInterface[]> => {
     const result = await UserModel.find();
     return result;
 }
