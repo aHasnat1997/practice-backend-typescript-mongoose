@@ -38,7 +38,8 @@ const getAllUser = async (req: Request, res: Response): Promise<void> => {
         res.status(200).json({
             success: true,
             massage: 'all user data get successfully',
-            doc: result
+            docs: result,
+            totalDocs: result.length
         })
     } catch (error) {
         console.log(error);

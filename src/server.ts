@@ -11,11 +11,12 @@ import config from "./config";
          * mongoDB connection
          */
         await mongoose.connect(config.database_url as string);
-        const db = mongoose.connection;
-        db.on('error', console.error.bind(console, 'MongoDB connection error 💔 : '));
-        db.once('open', () => {
-            console.log('Connected to MongoDB🔌');
-        })
+        console.log('Connected to MongoDB🔌');
+        // const db = mongoose.connection;
+        // db.on('error', console.error.bind(console, 'MongoDB connection error 💔 : '));
+        // db.once('open', () => {
+        //     console.log('Connected to MongoDB🔌');
+        // })
 
 
         /**
